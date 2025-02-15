@@ -12,7 +12,7 @@
                 <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('/crud') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -52,10 +52,25 @@
                     <img src="/images/{{ $product->photo }}" width="300px">
                 </div>
             </div>
+
+            
+            >
+            </div>
+
+            <div class="mb-3">
+                <label for="role" class="form-label">Select Role</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value={{ $product->category }} selected >{{ $product->category }}</option>
+                    <option value="cloth">cloth</option>
+                    <option value="fruit">fruit</option>
+                    <option value="car">car</option>
+                    <option value="phone">phone</option>
+                </select>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>price:</strong>
-                    <input type="number" name="price" class="form-control" placeholder="price">
+                    <input type="text" value={{ $product->price }} name="price" class="form-control" placeholder="price">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

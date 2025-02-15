@@ -15,6 +15,10 @@ class ProductcrudController extends Controller
     {
         $products = Product::all();
         return view('welcome', compact('products'));
+
+//         $products = Product::where('category', 'phone')->get(); 
+// return view('welcome', compact('products'));
+
     }
 
 
@@ -29,6 +33,29 @@ class ProductcrudController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
  
+
+
+    public function category(Request $request)
+    {
+        // Get category from request (default is empty)
+        $category = $request->input('category', '');
+    
+        // Fetch products filtered by category if selected
+        $query = Product::query();
+    
+        if (!empty($category)) {
+            $query->where('category', $category);
+        }
+    
+        $products = $query->get(); // Fetch products
+    
+        return view('category', compact('products', 'category'));
+    }
+    
+
+
+
+
     
     public function create()
     {
@@ -44,6 +71,7 @@ class ProductcrudController extends Controller
             'detail' => 'required',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
+            'category' => 'required',
             'user_id' => 'required',
         ]);
    
@@ -80,7 +108,9 @@ class ProductcrudController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'price' => 'required',
+            'category' => 'required',
         ]);
    
         $input = $request->all();

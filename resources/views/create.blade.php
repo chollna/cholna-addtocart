@@ -12,7 +12,7 @@
                 <h2>Add New Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('/') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url('/crud') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -57,6 +57,18 @@
                     <input type="number" name="price" class="form-control" placeholder="price">
                 </div>
             </div>
+
+            <div class="mb-3">
+                <label for="role" class="form-label">Select Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value="category" selected disabled>Select category</option>
+                    <option value="cloth">cloth</option>
+                    <option value="fruit">fruit</option>
+                    <option value="car">car</option>
+                    <option value="phone">phone</option>
+                </select>
+            </div>
+
             <select class="form-control" name="user_id">
                 <option value="option_select" disabled selected>Choose</option>
                 @foreach ($users as $ct)

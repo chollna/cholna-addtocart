@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->string('image');
+            $table->string('photo');
             $table->string('price');
+            $table->string('category');
             $table->unsignedBigInteger('user_id');
            
             $table->foreign('user_id')->references('id')->on('users');//make relationship

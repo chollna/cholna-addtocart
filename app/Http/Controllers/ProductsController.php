@@ -14,6 +14,15 @@ class ProductsController extends Controller
         return view('products', compact('products'));
     }
   
+
+   public function admin(){
+
+    return view('admin/admin',);
+
+   }
+
+
+
     public function cart()
     {
         return view('cart');
@@ -28,7 +37,7 @@ class ProductsController extends Controller
             $cart[$id]['quantity']++;
         }  else {
             $cart[$id] = [
-                "product_name" => $product->product_name,
+                "product_name" => $product->name,
                 "photo" => $product->photo,
                 "price" => $product->price,
                 "quantity" => 1

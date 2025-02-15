@@ -70,12 +70,15 @@
                                 @endauth
                             </nav>
                         @endif
+
                         <form method="GET" action="{{ route('category') }}">
                             <button type="submit" name="category" value="phone" class="btn btn-primary">Phones</button>
                             <button type="submit" name="category" value="laptop" class="btn btn-success">Laptops</button>
                             <button type="submit" name="category" value="cloth" class="btn btn-warning">fruit</button>
                             <button type="submit" name="category" value="car" class="btn btn-warning">car</button>
                             <button type="submit" name="category" value="phone" class="btn btn-warning">phone</button>
+
+                            <button type="submit" name="category" value="" class="btn btn-danger">All Products</button>
                         </form>
                         <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
                             {{-- <a href="{{ route('index') }}" class="btn btn-primary btn-block">Goto Crud</a> --}}
@@ -142,7 +145,7 @@
                                         <div class="img_thumbnail productlist">
                                             <img src="{{ asset('images') }}/{{ $product->photo }}" class="img-fluid">
                                             <div class="caption">
-                                                <h4>{{ $product->name }}</h4>
+                                                <h4>{{ $product->product_name }}</h4>
                                                 <p>{{ $product->product_description }}</p>
                                                 <p><strong>Price: </strong> ${{ $product->price }}</p>
                                                 <p class="btn-holder"><a href="{{ route('add_to_cart', $product->id) }}" class="btn btn-primary btn-block text-center" role="button">Add to cart</a> </p>

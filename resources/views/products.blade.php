@@ -77,7 +77,7 @@
                 </div>
             </div>
         @endforeach
-    </div>
+    </div>c
 </div>
     
 @yield('scripts')
